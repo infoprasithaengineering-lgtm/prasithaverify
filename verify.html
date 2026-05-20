@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Certificate Verification</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+
+    body{
+      font-family: Arial;
+      background:#f5f5f5;
+      margin:0;
+      padding:20px;
+    }
+
+    .container{
+      max-width:700px;
+      margin:auto;
+      background:white;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1{
+      color:#0f172a;
+      line-height:1.4;
+    }
+
+    .verified{
+      text-align:center;
+      color:green;
+      font-size:50px;
+      margin:30px 0;
+      font-weight:bold;
+    }
+
+    ul{
+      line-height:2;
+      font-size:22px;
+    }
+
+    .success{
+      color:green;
+      font-size:30px;
+      font-weight:bold;
+    }
+
+    .footer{
+      margin-top:30px;
+      font-style:italic;
+      color:#555;
+      line-height:1.7;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="container" id="content">
+
+Loading...
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const studentId = params.get("id");
+
+fetch("students.json")
+.then(response => response.json())
+.then(data => {
+
+    const student = data.find(s => s.id === studentId);
+
+    if(student){
+
+        document.getElementById("content").innerHTML = `
+
+        <h1>
+        PrasithaEnginering Verified Certificate – ${student.name}
+        </h1>
+
+        <div class="verified">
+        ✅ VERIFIED
+        </div>
+
+        <p class="success">
+        🎉 CONGRATULATIONS 🎉
+        </p>
+
+        <p style="font-size:22px;">
+        It’s a verified certificate from Prasitha Engineering and Tech Solutions
+        </p>
+
+        <ul>
+
+        <li>
+        <b>Learner Full Name:</b> ${student.name}
+        </li>
+
+        <li>
+        <b>Internship Course:</b> ${student.course}
+        </li>
+
+        <li>
+        <b>Duration:</b> ${student.duration}
+        </li>
+
+        <li>
+        <b>Roll No:</b> ${student.id}
+        </li>
+
+        <li>
+        <b>College:</b> ${student.college}
+        </li>
+
+        </ul>
+
+        <div class="footer">
+
+        The details accessed via the QR code are secure and verified.
+
+        </div>
+
+        `;
+
+    } else {
+
+        document.getElementById("content").innerHTML = `
+        <h1 style="color:red;">
+        ❌ Certificate Not Found
+        </h1>
+        `;
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
