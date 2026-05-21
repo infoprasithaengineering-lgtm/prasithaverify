@@ -1,8 +1,8 @@
 [
   {
     "id": "PETS202654",
-    "name": "GUNDAREDDY SIVAREDDY",
-    "course": "Electric Vehicle Technologies",
+    "name": "GUNDAREDDY SIVA REDDY",
+    "course": "Solar PV System Design",
     "duration": "10/05/2026 to 09/06/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   },
@@ -17,70 +17,70 @@
     "id": "PETS202656",
     "name": "BOKKA AJAY",
     "course": "Control Systems Engineering",
-    "duration": "25-04-2026 to 24-05-2026",
+    "duration": "25/04/2026 to 24/05/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   },
   {
     "id": "PETS202657",
     "name": "KUDUMULA KEERTHI REDDY",
     "course": "Control Systems Engineering",
-    "duration": "25-04-2026 to 24-05-2026",
+    "duration": "25/04/2026 to 24/05/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   },
   {
     "id": "PETS202658",
     "name": "MANDU BHARGAVI",
     "course": "Control Systems Engineering",
-    "duration": "25-04-2026 to 24-05-2026",
+    "duration": "25/04/2026 to 24/05/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   },
   {
     "id": "PETS202659",
     "name": "TETANEELLA SIVA KESAVA",
     "course": "Control Systems Engineering",
-    "duration": "25-04-2026 to 24-05-2026",
+    "duration": "25/04/2026 to 24/05/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   },
   {
     "id": "PETS202660",
     "name": "ANNAPUREDDY SWATHI",
     "course": "Control Systems Engineering",
-    "duration": "25-04-2026 to 24-05-2026",
+    "duration": "25/04/2026 to 24/05/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   },
   {
     "id": "PETS202661",
     "name": "LAGUDU MOUNIKA",
     "course": "Control Systems Engineering",
-    "duration": "25-04-2026 to 24-05-2026",
+    "duration": "25/04/2026 to 24/05/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   },
   {
     "id": "PETS202662",
     "name": "UPPALA KALPANA",
     "course": "Control Systems Engineering",
-    "duration": "25-04-2026 to 24-05-2026",
+    "duration": "25/04/2026 to 24/05/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   },
   {
     "id": "PETS202663",
     "name": "URITI SONY",
     "course": "Control Systems Engineering",
-    "duration": "25-04-2026 to 24-05-2026",
+    "duration": "25/04/2026 to 24/05/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   },
   {
     "id": "PETS202664",
-    "name": "ALJUBILLI NAVYA",
+    "name": "Algubilli Navya",
     "course": "Control Systems Engineering",
-    "duration": "25-04-2026 to 24-05-2026",
+    "duration": "25/04/2026 to 24/05/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   },
   {
     "id": "PETS202665",
     "name": "GUNDA DURGAPRASAD",
     "course": "Control Systems Engineering",
-    "duration": "25-04-2026 to 24-05-2026",
+    "duration": "25/04/2026 to 24/05/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   },
   {
@@ -92,7 +92,7 @@
   },
   {
     "id": "PETS202667",
-    "name": "CHIGILIPELLI SURYA TEJA",
+    "name": "Chigilipelli suryateja",
     "course": "Power Systems Analysis & Load Flow",
     "duration": "29/04/2026 to 28/05/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
@@ -162,10 +162,9 @@
   },
   {
     "id": "PETS202677",
-    "name": "PULIDINDI MOHANA REDDY",
+    "name": "Pulidindi mohana Reddy",
     "course": "MATLAB & Simulink for Electrical Engineering",
     "duration": "01/05/2026 to 10/06/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   }
-
 ]
