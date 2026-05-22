@@ -22,6 +22,10 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- AOS Animation -->
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <style>
 
     *{
@@ -34,62 +38,51 @@
 
       font-family:'Poppins',sans-serif;
 
+      background:
+      linear-gradient(
+        135deg,
+        #020617,
+        #111827,
+        #1e3a8a
+      );
+
       min-height:100vh;
 
-      background:
-      linear-gradient(135deg,#000000,#111827,#1e3a8a);
-
       overflow-x:hidden;
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:center;
-
-      padding:30px;
 
       position:relative;
 
     }
 
-    body::before{
+    #particles-js{
 
-      content:'';
+      position:fixed;
 
-      position:absolute;
+      width:100%;
+      height:100%;
 
-      width:500px;
-      height:500px;
+      top:0;
+      left:0;
 
-      background:rgba(250,204,21,0.25);
-
-      border-radius:50%;
-
-      top:-200px;
-      left:-150px;
-
-      filter:blur(80px);
+      z-index:0;
 
     }
 
-    body::after{
+    .main-container{
 
-      content:'';
+      min-height:100vh;
 
-      position:absolute;
+      display:flex;
 
-      width:400px;
-      height:400px;
+      justify-content:center;
 
-      background:rgba(37,99,235,0.3);
+      align-items:center;
 
-      border-radius:50%;
+      position:relative;
 
-      bottom:-150px;
-      right:-100px;
+      z-index:2;
 
-      filter:blur(80px);
+      padding:40px 20px;
 
     }
 
@@ -97,11 +90,11 @@
 
       width:100%;
 
-      max-width:850px;
+      max-width:900px;
 
-      background:rgba(255,255,255,0.08);
+      background:rgba(15,23,42,0.75);
 
-      border:1px solid rgba(255,255,255,0.15);
+      border:2px solid rgba(250,204,21,0.35);
 
       backdrop-filter:blur(15px);
 
@@ -111,13 +104,13 @@
 
       color:white;
 
-      box-shadow:0 15px 40px rgba(0,0,0,0.4);
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
 
       position:relative;
 
-      z-index:2;
-
       overflow:hidden;
+
+      animation:floatCard 4s ease-in-out infinite;
 
     }
 
@@ -139,6 +132,80 @@
 
     }
 
+    .verify-card::after{
+
+      content:'';
+
+      position:absolute;
+
+      inset:0;
+
+      border-radius:30px;
+
+      padding:2px;
+
+      background:linear-gradient(
+        45deg,
+        #facc15,
+        #2563eb,
+        #22c55e,
+        #facc15
+      );
+
+      background-size:400% 400%;
+
+      animation:borderGlow 8s linear infinite;
+
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+      -webkit-mask-composite:xor;
+
+      pointer-events:none;
+
+    }
+
+    @keyframes borderGlow{
+
+      0%{
+        background-position:0% 50%;
+      }
+
+      50%{
+        background-position:100% 50%;
+      }
+
+      100%{
+        background-position:0% 50%;
+      }
+
+    }
+
+    @keyframes floatCard{
+
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-10px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+
+    }
+
+    .loading-area{
+
+      text-align:center;
+
+      padding:80px 20px;
+
+    }
+
     .logo{
 
       text-align:center;
@@ -149,11 +216,11 @@
 
     .logo img{
 
-      width:220px;
+      width:300px;
 
-      max-width:90%;
+      max-width:95%;
 
-      filter:drop-shadow(0 10px 20px rgba(250,204,21,0.4));
+      filter:drop-shadow(0 10px 25px rgba(250,204,21,0.4));
 
       animation:floatLogo 4s ease-in-out infinite;
 
@@ -179,7 +246,7 @@
 
       text-align:center;
 
-      font-size:42px;
+      font-size:48px;
 
       font-weight:800;
 
@@ -290,9 +357,11 @@
 
     .detail-box:hover{
 
-      transform:translateY(-5px);
+      transform:translateY(-8px) scale(1.03);
 
-      background:rgba(250,204,21,0.15);
+      background:rgba(250,204,21,0.18);
+
+      box-shadow:0 10px 30px rgba(250,204,21,0.25);
 
     }
 
@@ -314,9 +383,17 @@
 
       font-size:20px;
 
-      font-weight:500;
+      font-weight:600;
 
-      color:white;
+      color:#ffffff;
+
+      line-height:1.7;
+
+    }
+
+    .full-width{
+
+      grid-column:1/-1;
 
     }
 
@@ -360,7 +437,7 @@
 
       .title{
 
-        font-size:30px;
+        font-size:32px;
 
       }
 
@@ -379,6 +456,12 @@
 
       }
 
+      .logo img{
+
+        width:220px;
+
+      }
+
     }
 
   </style>
@@ -387,17 +470,23 @@
 
 <body>
 
-<div class="verify-card" id="content">
+<div id="particles-js"></div>
 
-  <div class="text-center">
+<div class="main-container">
 
-    <div class="spinner-border text-warning"
-    style="width:4rem;height:4rem;">
+  <div class="verify-card" id="content">
+
+    <div class="loading-area">
+
+      <div class="spinner-border text-warning"
+      style="width:4rem;height:4rem;">
+      </div>
+
+      <h2 class="mt-4">
+        Loading Verification...
+      </h2>
+
     </div>
-
-    <h2 class="mt-4">
-      Loading Verification...
-    </h2>
 
   </div>
 
@@ -423,7 +512,7 @@ fetch("./students.json")
 
       document.getElementById("content").innerHTML = `
 
-      <div class="logo">
+      <div class="logo" data-aos="zoom-in">
 
         <img src="logo.png" alt="Logo">
 
@@ -433,7 +522,7 @@ fetch("./students.json")
         Certificate Verified
       </h1>
 
-      <div class="verified-badge">
+      <div class="verified-badge" data-aos="zoom-in">
 
         <i class="fa-solid fa-check"></i>
 
@@ -447,12 +536,12 @@ fetch("./students.json")
 
       <div class="subtitle">
 
-        This internship certificate is officially verified
-        by Prasitha Engineering.
+        This internship certificate is officially verified by
+        Prasitha Engineering.
 
       </div>
 
-      <div class="details">
+      <div class="details" data-aos="fade-up">
 
         <div class="detail-box">
 
@@ -502,7 +591,7 @@ fetch("./students.json")
 
         </div>
 
-        <div class="detail-box" style="grid-column:1/-1;">
+        <div class="detail-box full-width">
 
           <div class="detail-label">
             College Name
@@ -526,6 +615,8 @@ fetch("./students.json")
       </div>
 
       `;
+
+      AOS.refresh();
 
     }
 
@@ -581,178 +672,58 @@ fetch("./students.json")
 
 </script>
 
-</body>
-</html><!DOCTYPE html>
-<html>
-<head>
+<!-- Particles -->
 
-  <title>Certificate Verification</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-
-    body{
-      font-family: Arial;
-      background:#f5f5f5;
-      margin:0;
-      padding:20px;
-    }
-
-    .container{
-      max-width:700px;
-      margin:auto;
-      background:white;
-      padding:30px;
-      border-radius:12px;
-      box-shadow:0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .logo{
-      text-align:center;
-      margin-bottom:20px;
-    }
-
-    .logo img{
-      width:120px;
-      height:auto;
-    }
-
-    h1{
-      color:#0f172a;
-      line-height:1.4;
-      text-align:center;
-    }
-
-    .verified{
-      text-align:center;
-      color:green;
-      font-size:50px;
-      margin:30px 0;
-      font-weight:bold;
-    }
-
-    ul{
-      line-height:2;
-      font-size:22px;
-    }
-
-    .success{
-      color:green;
-      font-size:30px;
-      font-weight:bold;
-      text-align:center;
-    }
-
-    .footer{
-      margin-top:30px;
-      font-style:italic;
-      color:#555;
-      line-height:1.7;
-      text-align:center;
-    }
-
-  </style>
-
-</head>
-
-<body>
-
-<div class="container" id="content">
-
-Loading....
-
-</div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <script>
 
-const params = new URLSearchParams(window.location.search);
+particlesJS("particles-js", {
 
-const studentId = params.get("id");
+  particles: {
 
-fetch("students.json")
-.then(response => response.json())
-.then(data => {
+    number: {
+      value: 80
+    },
 
-    const student = data.find(s => s.id === studentId);
+    color: {
+      value: "#facc15"
+    },
 
-    if(student){
+    shape: {
+      type: "circle"
+    },
 
-        document.getElementById("content").innerHTML = `
+    opacity: {
+      value: 0.5
+    },
 
-        <div class="logo">
+    size: {
+      value: 3
+    },
 
-        <img src="logo.png"
-     alt="Prasitha Engineering Logo"
-     style="width:240px; height:auto;">
-
-        </div>
-
-        <h1>
-        Prasitha Engineering Verified Certificate
-        </h1>
-
-        <div class="verified">
-        ✅ VERIFIED
-        </div>
-
-        <p class="success">
-        🎉 CONGRATULATIONS 🎉
-        </p>
-
-        <p style="font-size:22px; text-align:center;">
-        This is a verified internship certificate.
-        </p>
-
-        <ul>
-
-        <li>
-        <b>Learner Full Name:</b> ${student.name}
-        </li>
-
-        <li>
-        <b>Internship Course:</b> ${student.course}
-        </li>
-
-        <li>
-        <b>Duration:</b> ${student.duration}
-        </li>
-
-        <li>
-        <b>Cert No:</b> ${student.id}
-        </li>
-
-        <li>
-        <b>College:</b> ${student.college}
-        </li>
-
-        </ul>
-
-        <div class="footer">
-
-        The details accessed via the QR code are secure and verified.
-
-        </div>
-
-        `;
-
-    } else {
-
-        document.getElementById("content").innerHTML = `
-
-        <div class="logo">
-
-        <img src="logo.png" alt="Logo">
-
-        </div>
-
-        <h1 style="color:red; text-align:center;">
-        ❌ Certificate Not Found
-        </h1>
-
-        `;
-
+    move: {
+      enable: true,
+      speed: 2
     }
+
+  }
+
+});
+
+</script>
+
+<!-- AOS -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+
+  duration:1200,
+
+  once:true
 
 });
 
