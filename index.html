@@ -3,790 +3,773 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prasitha Engineering</title>
+  <title>Prasitha Engineering & Tech Solutions</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css)" rel="stylesheet">
+  <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css)">
+  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap)" rel="stylesheet">
 
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body{
+    body {
       font-family: 'Poppins', Arial, sans-serif;
-      background:linear-gradient(135deg,#050505,#111827,#1e293b);
-      color:#f8fafc;
-      overflow-x:hidden;
+      background: linear-gradient(135deg, #050505, #111827, #1e293b);
+      color: #f8fafc;
+      overflow-x: hidden;
     }
 
-    .navbar{
-      background:rgba(0,0,0,0.8);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,0.1);
+    /* ── NAVBAR ── */
+    .navbar {
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .navbar-brand, .nav-link {
+      color: white !important;
+      font-weight: 500;
+    }
+    .nav-link:hover { color: #facc15 !important; transition: 0.3s; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #000000, #111827, #facc15);
+      color: white;
+      padding: 140px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: rgba(250,204,21,0.25);
+      border-radius: 50%;
+      top: -200px; right: -120px;
+      filter: blur(40px);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 350px; height: 350px;
+      background: rgba(37,99,235,0.25);
+      border-radius: 50%;
+      bottom: -150px; left: -100px;
+      filter: blur(40px);
+    }
+    .hero img {
+      width: 680px; max-width: 90%; height: auto;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 10px 25px rgba(250,204,21,0.4));
+      animation: floatLogo 4s ease-in-out infinite;
+      position: relative; z-index: 2;
+    }
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+    .hero h1 {
+      font-size: 72px; font-weight: 800;
+      background: linear-gradient(90deg, #ffffff, #facc15);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative; z-index: 2;
+    }
+    .hero p {
+      font-size: 22px; max-width: 900px;
+      margin: 25px auto 0;
+      line-height: 1.9; color: #e2e8f0;
+      position: relative; z-index: 2;
     }
 
-    .navbar-brand,
-    .nav-link{
-      color:white !important;
-      font-weight:500;
+    /* ── SECTION TITLE ── */
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+      font-weight: 800; font-size: 42px;
+      color: #facc15;
+      text-shadow: 0 0 20px rgba(250,204,21,0.3);
     }
 
-    .hero{
-      background:linear-gradient(135deg,#000000,#111827,#facc15);
-      color:white;
-      padding:140px 20px;
-      text-align:center;
-      position:relative;
-      overflow:hidden;
+    /* ── CARDS ── */
+    .service-card, .course-card, .intern-card {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      padding: 35px;
+      transition: 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      height: 100%;
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+    .service-card::before, .course-card::before, .intern-card::before {
+      content: '';
+      position: absolute;
+      width: 180px; height: 180px;
+      background: rgba(250,204,21,0.12);
+      border-radius: 50%;
+      top: -60px; right: -60px;
+    }
+    .service-card:hover, .course-card:hover, .intern-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(250,204,21,0.25);
+      border: 1px solid rgba(250,204,21,0.5);
+    }
+    .icon { font-size: 52px; color: #facc15; margin-bottom: 20px; }
+
+    /* ── BRANCH TAB PILLS ── */
+    .branch-tabs { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px; }
+    .branch-tab {
+      padding: 10px 26px; border-radius: 50px; cursor: pointer;
+      font-weight: 600; font-size: 15px;
+      border: 2px solid rgba(250,204,21,0.4);
+      background: rgba(255,255,255,0.06);
+      color: #f8fafc; transition: 0.3s;
+    }
+    .branch-tab:hover, .branch-tab.active {
+      background: #facc15; color: #111827;
+      border-color: #facc15;
+    }
+    .branch-panel { display: none; }
+    .branch-panel.active { display: block; }
+
+    /* ── COURSE LIST CARDS ── */
+    .course-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 20px; margin-bottom: 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.3s;
+    }
+    .course-item:hover {
+      background: rgba(250,204,21,0.12);
+      border-color: rgba(250,204,21,0.4);
+    }
+    .course-num {
+      min-width: 32px; height: 32px;
+      border-radius: 50%;
+      background: #facc15; color: #111827;
+      font-weight: 800; font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .course-item h6 { font-weight: 600; margin-bottom: 2px; font-size: 15px; color: #fff; }
+    .course-item p  { font-size: 13px; color: #cbd5e1; margin: 0; }
+
+    /* ── INTERNSHIP ── */
+    .intern-mode-title {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 22px;
+    }
+    .intern-item {
+      padding: 14px 18px; margin-bottom: 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.3s;
+    }
+    .intern-item:hover {
+      background: rgba(250,204,21,0.1);
+      border-color: rgba(250,204,21,0.35);
+    }
+    .intern-item h6 { font-weight: 600; margin-bottom: 2px; font-size: 14px; }
+    .intern-item p  { font-size: 12px; color: #94a3b8; margin: 0; }
+
+    /* ── VISION MISSION ── */
+    .vision-mission {
+      background: rgba(255,255,255,0.08);
+      border-radius: 24px; padding: 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px); color: white;
+    }
+    .vision-mission h3 { color: #facc15; margin-bottom: 20px; font-weight: 700; }
+    .vision-mission ul { line-height: 2.2; font-size: 17px; }
+
+    /* ── CTA ── */
+    .cta {
+      background: linear-gradient(135deg, #facc15, #f59e0b, #111827);
+      color: black; padding: 90px 20px; text-align: center;
+      border-radius: 28px;
+      box-shadow: 0 20px 40px rgba(250,204,21,0.25);
     }
 
-    .hero::before{
-      content:'';
-      position:absolute;
-      width:500px;
-      height:500px;
-      background:rgba(250,204,21,0.25);
-      border-radius:50%;
-      top:-200px;
-      right:-120px;
-      filter:blur(40px);
+    /* ── BENEFITS ── */
+    .benefit-card {
+      background: white; color: #111827;
+      border-radius: 16px; padding: 28px;
+      text-align: center; height: 100%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+    .benefit-card:hover { transform: translateY(-6px); }
+    .benefit-icon { font-size: 36px; color: #facc15; margin-bottom: 14px; }
+
+    /* ── CONTACT / ADDRESS ── */
+    .contact-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      border-radius: 24px; padding: 45px;
+    }
+    .contact-item { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 28px; }
+    .contact-icon {
+      width: 50px; height: 50px; border-radius: 12px;
+      background: #facc15; color: #111827;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .contact-item h6 { color: #facc15; font-weight: 600; margin-bottom: 4px; }
+    .contact-item p  { color: #cbd5e1; margin: 0; font-size: 15px; line-height: 1.7; }
+
+    /* ── MAP PLACEHOLDER ── */
+    .map-box {
+      border-radius: 20px; overflow: hidden;
+      border: 2px solid rgba(250,204,21,0.3);
+      height: 100%; min-height: 320px;
+    }
+    .map-box iframe { width: 100%; height: 100%; min-height: 320px; border: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #000;
+      color: #facc15;
+      text-align: center;
+      padding: 30px;
+      margin-top: 70px;
+      border-top: 2px solid rgba(250,204,21,0.4);
+      font-size: 14px;
     }
 
-    .hero::after{
-      content:'';
-      position:absolute;
-      width:350px;
-      height:350px;
-      background:rgba(37,99,235,0.25);
-      border-radius:50%;
-      bottom:-150px;
-      left:-100px;
-      filter:blur(40px);
+    /* ── FLOATING BUTTON ── */
+    .float-btn {
+      position: fixed; right: 20px; bottom: 20px;
+      background: #2563eb; color: white;
+      width: 60px; height: 60px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.35); z-index: 999;
+      transition: 0.3s;
     }
+    .float-btn:hover { background: #facc15; color: #111827; transform: scale(1.1); }
 
-    .hero img{
-      width:680px;
-      max-width:90%;
-      height:auto;
-      margin-bottom:30px;
-      filter:drop-shadow(0 10px 25px rgba(250,204,21,0.4));
-      animation:floatLogo 4s ease-in-out infinite;
-      position:relative;
-      z-index:2;
+    /* ── RESPONSIVE ── */
+    @media(max-width: 768px) {
+      .hero h1 { font-size: 36px; }
+      .hero p   { font-size: 17px; }
+      .section-title { font-size: 30px; }
     }
-
-    @keyframes floatLogo{
-      0%{
-        transform:translateY(0px);
-      }
-
-      50%{
-        transform:translateY(-10px);
-      }
-
-      100%{
-        transform:translateY(0px);
-      }
-    }
-
-    .hero h1{
-      font-size:72px;
-      font-weight:800;
-      background:linear-gradient(90deg,#ffffff,#facc15);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      position:relative;
-      z-index:2;
-    }
-
-    .hero p{
-      font-size:24px;
-      max-width:900px;
-      margin:auto;
-      margin-top:25px;
-      line-height:1.9;
-      color:#e2e8f0;
-      position:relative;
-      z-index:2;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:55px;
-      font-weight:800;
-      font-size:48px;
-      color:#facc15;
-      text-shadow:0 0 20px rgba(250,204,21,0.3);
-    }
-
-    .service-card,
-    .course-card{
-      border:none;
-      border-radius:24px;
-      padding:35px;
-      transition:0.4s ease;
-      box-shadow:0 10px 30px rgba(0,0,0,0.25);
-      background:rgba(255,255,255,0.08);
-      backdrop-filter:blur(12px);
-      height:100%;
-      border:1px solid rgba(255,255,255,0.12);
-      color:white;
-      overflow:hidden;
-      position:relative;
-    }
-
-    .service-card::before,
-    .course-card::before{
-      content:'';
-      position:absolute;
-      width:180px;
-      height:180px;
-      background:rgba(250,204,21,0.15);
-      border-radius:50%;
-      top:-60px;
-      right:-60px;
-    }
-
-    .service-card:hover,
-    .course-card:hover{
-      transform:translateY(-12px) scale(1.02);
-      box-shadow:0 20px 40px rgba(250,204,21,0.25);
-      border:1px solid rgba(250,204,21,0.5);
-    }
-
-    .icon{
-      font-size:56px;
-      color:#facc15;
-      margin-bottom:22px;
-    }
-
-    .vision-mission{
-      background:rgba(255,255,255,0.08);
-      border-radius:24px;
-      padding:50px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.25);
-      border:1px solid rgba(255,255,255,0.1);
-      backdrop-filter:blur(10px);
-      color:white;
-    }
-
-    .vision-mission h3{
-      color:#facc15;
-      margin-bottom:20px;
-      font-weight:700;
-    }
-
-    .vision-mission ul{
-      line-height:2;
-      font-size:18px;
-    }
-
-    .cta{
-      background:linear-gradient(135deg,#facc15,#f59e0b,#111827);
-      color:black;
-      padding:90px 20px;
-      text-align:center;
-      border-radius:28px;
-      box-shadow:0 20px 40px rgba(250,204,21,0.25);
-    }
-
-    footer{
-      background:#000000;
-      color:#facc15;
-      text-align:center;
-      padding:30px;
-      margin-top:70px;
-      border-top:2px solid rgba(250,204,21,0.4);
-    }
-
-    @media(max-width:768px){
-
-      .hero h1{
-        font-size:40px;
-      }
-
-      .hero p{
-        font-size:18px;
-      }
-
-    }
-
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-
+<!-- ═══════════════ NAVBAR ═══════════════ -->
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
   <div class="container">
-
-    <a class="navbar-brand" href="#">
-      Prasitha Engineering & Tech Solutions
-    </a>
-
+    <a class="navbar-brand fw-bold" href="#">🔧 Prasitha Engineering</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#services">Services</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#courses">Courses</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#vision">Vision & Mission</a>
-        </li>
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#internships">Internships</a></li>
+        <li class="nav-item"><a class="nav-link" href="#vision">Vision & Mission</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
     </div>
-
   </div>
 </nav>
 
-<!-- HERO -->
-
+<!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero">
-
-  <div id="particles-js" style="position:absolute; inset:0;"></div>
-
-  <img src="logo.png" alt="Logo">
-
+  <div id="particles-js" style="position:absolute;inset:0;z-index:1;"></div>
+  <img src="logo.png" alt="Prasitha Engineering Logo">
   <h1>Prasitha Engineering</h1>
-
-  <p>
-    Empowering innovation through engineering services, industrial solutions,
-    training programs, and advanced technology support.
-  </p>
-
+  <p>Empowering innovation through engineering services, industrial solutions,<br>training programs, and advanced technology support — across all disciplines.</p>
+  <div style="margin-top:40px;position:relative;z-index:2;">
+    <a href="#courses" class="btn btn-warning btn-lg fw-bold me-3 px-4">Explore Courses</a>
+    <a href="#contact" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
+  </div>
 </section>
 
-<!-- ABOUT -->
-
+<!-- ═══════════════ ABOUT ═══════════════ -->
 <section class="container py-5" id="about">
-
   <h2 class="section-title">About Us</h2>
-
   <div class="vision-mission">
-
-    <p style="font-size:20px; line-height:2;">
-      Prasitha Engineering is committed to delivering economical,
-      reliable, and innovative engineering solutions across multiple domains.
-      We specialize in manufacturing, maintenance services, electronics,
-      training programs, PCB designing, automation systems,
-      and customized technology solutions.
+    <p style="font-size:19px;line-height:2.1;">
+      <strong style="color:#facc15;">Prasitha Engineering & Tech Solutions</strong> is committed to delivering economical, reliable, and innovative engineering solutions across multiple domains. We specialize in manufacturing, maintenance services, electronics, training programs, PCB designing, automation systems, and customized technology solutions — empowering students, industries, and organizations to achieve excellence.
     </p>
-
+    <div class="row g-4 mt-3">
+      <div class="col-md-3 text-center">
+        <div style="font-size:42px;font-weight:800;color:#facc15;">500+</div>
+        <div style="color:#94a3b8;">Students Trained</div>
+      </div>
+      <div class="col-md-3 text-center">
+        <div style="font-size:42px;font-weight:800;color:#facc15;">9+</div>
+        <div style="color:#94a3b8;">Service Verticals</div>
+      </div>
+      <div class="col-md-3 text-center">
+        <div style="font-size:42px;font-weight:800;color:#facc15;">40+</div>
+        <div style="color:#94a3b8;">Courses Offered</div>
+      </div>
+      <div class="col-md-3 text-center">
+        <div style="font-size:42px;font-weight:800;color:#facc15;">5+</div>
+        <div style="color:#94a3b8;">Years Experience</div>
+      </div>
+    </div>
   </div>
-
 </section>
 
-<!-- VISION & MISSION -->
-
+<!-- ═══════════════ VISION & MISSION ═══════════════ -->
 <section class="container py-5" id="vision">
-
   <h2 class="section-title">Vision & Mission</h2>
-
   <div class="row g-4">
-
     <div class="col-lg-6">
-
       <div class="vision-mission h-100">
-
-        <h3>
-          <i class="fa-solid fa-eye"></i>
-          Vision
-        </h3>
-
-        <p style="font-size:20px; line-height:2;">
-          To become the leading service provider in southren india by manufacturing economical and reliable products and partnering with various manufacturers to fulfil customer needs.
+        <h3><i class="fa-solid fa-eye me-2"></i>Vision</h3>
+        <p style="font-size:18px;line-height:2;">
+          To become the leading service provider in Southern India by manufacturing economical and reliable products and partnering with various manufacturers to fulfil customer needs across engineering, technology, and education sectors.
         </p>
-
       </div>
-
     </div>
-
     <div class="col-lg-6">
-
       <div class="vision-mission h-100">
-
-        <h3>
-          <i class="fa-solid fa-bullseye"></i>
-          Mission
-        </h3>
-
+        <h3><i class="fa-solid fa-bullseye me-2"></i>Mission</h3>
         <ul>
-          <li>To reduce downtime errors and enhance reliability.</li>
-          <li>To educate recent trends in electrical and electronics.</li>
-          <li>To provide reliable and economical products.</li>
-          <li>To provide reliable services for customers and clients.</li>
+          <li>To reduce downtime errors and enhance reliability in industrial systems.</li>
+          <li>To educate students on recent trends in electrical, electronics, and computing.</li>
+          <li>To provide reliable and economical products and services.</li>
+          <li>To bridge the gap between academia and industry through practical training.</li>
+          <li>To foster innovation in sustainable engineering and emerging technologies.</li>
         </ul>
-
       </div>
-
     </div>
-
   </div>
-
 </section>
 
-<!-- SERVICES -->
-
+<!-- ═══════════════ SERVICES ═══════════════ -->
 <section class="container py-5" id="services">
-
   <h2 class="section-title">Our Services</h2>
-
   <div class="row g-4">
 
     <div class="col-md-4">
       <div class="service-card text-center">
-        <div class="icon">
-          <i class="fa-solid fa-industry"></i>
-        </div>
+        <div class="icon"><i class="fa-solid fa-industry"></i></div>
         <h4>Manufacturing</h4>
-        <p>Reliable industrial and engineering product manufacturing services.</p>
+        <p>Reliable industrial and engineering product manufacturing tailored to client specifications.</p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="service-card text-center">
-        <div class="icon">
-          <i class="fa-solid fa-screwdriver-wrench"></i>
-        </div>
+        <div class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
         <h4>Maintenance</h4>
-        <p>Professional maintenance services for industrial systems and devices.</p>
+        <p>Professional maintenance services for industrial systems, machines, and electronic devices.</p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="service-card text-center">
-        <div class="icon">
-          <i class="fa-solid fa-droplet"></i>
-        </div>
+        <div class="icon"><i class="fa-solid fa-droplet"></i></div>
         <h4>Water ATM</h4>
-        <p>Advanced water ATM systems and purification technologies.</p>
+        <p>Advanced water ATM systems, RO purification, and smart water dispensing technologies.</p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="service-card text-center">
-        <div class="icon">
-          <i class="fa-solid fa-building-columns"></i>
-        </div>
+        <div class="icon"><i class="fa-solid fa-building-columns"></i></div>
         <h4>Banking Kiosks</h4>
-        <p>Custom banking kiosk solutions with secure automation.</p>
+        <p>Custom banking kiosk solutions with secure automation and user-friendly interfaces.</p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="service-card text-center">
-        <div class="icon">
-          <i class="fa-solid fa-microchip"></i>
-        </div>
+        <div class="icon"><i class="fa-solid fa-microchip"></i></div>
         <h4>PCB Designing</h4>
-        <p>PCB designing and printing for industrial and educational applications.</p>
+        <p>PCB design, prototyping, and fabrication for industrial and educational applications.</p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="service-card text-center">
-        <div class="icon">
-          <i class="fa-solid fa-qrcode"></i>
-        </div>
+        <div class="icon"><i class="fa-solid fa-qrcode"></i></div>
         <h4>Barcode / QR Solutions</h4>
-        <p>Barcode and QR code printers and scanners integration services.</p>
+        <p>Barcode and QR code printer and scanner integration for business and logistics.</p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="service-card text-center">
-        <div class="icon">
-          <i class="fa-solid fa-tower-cell"></i>
-        </div>
+        <div class="icon"><i class="fa-solid fa-tower-cell"></i></div>
         <h4>Antenna Designing</h4>
-        <p>5G network antenna design and wireless communication solutions.</p>
+        <p>5G network antenna design and wireless communication engineering solutions.</p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="service-card text-center">
-        <div class="icon">
-          <i class="fa-solid fa-print"></i>
-        </div>
+        <div class="icon"><i class="fa-solid fa-print"></i></div>
         <h4>Photo Printers</h4>
-        <p>High quality photo printing and industrial printing solutions.</p>
+        <p>High-quality photo printing and industrial printing solutions for all scales.</p>
       </div>
     </div>
 
     <div class="col-md-4">
       <div class="service-card text-center">
-        <div class="icon">
-          <i class="fa-solid fa-coins"></i>
-        </div>
+        <div class="icon"><i class="fa-solid fa-coins"></i></div>
         <h4>Currency Counting</h4>
-        <p>Reliable currency counting machines and service support.</p>
+        <p>Reliable currency counting machines, calibration, and service support.</p>
       </div>
     </div>
 
   </div>
-
 </section>
 
-<!-- COURSES -->
-
+<!-- ═══════════════ COURSES (BRANCH TABS) ═══════════════ -->
 <section class="container py-5" id="courses">
-
   <h2 class="section-title">Engineering Courses & Training</h2>
 
+  <!-- Branch Tab Buttons -->
+  <div class="branch-tabs">
+    <button class="branch-tab active" onclick="showBranch('eee', this)">⚡ EEE</button>
+    <button class="branch-tab" onclick="showBranch('ece', this)">📡 ECE</button>
+    <button class="branch-tab" onclick="showBranch('cse', this)">💻 CSE</button>
+    <button class="branch-tab" onclick="showBranch('ds', this)">📊 Data Science</button>
+    <button class="branch-tab" onclick="showBranch('cs', this)">🔒 Cybersecurity</button>
+    <button class="branch-tab" onclick="showBranch('mech', this)">⚙️ Mechanical</button>
+    <button class="branch-tab" onclick="showBranch('aiml', this)">🤖 AI & ML</button>
+  </div>
+
+  <!-- EEE -->
+  <div class="branch-panel active" id="panel-eee">
+    <div class="row g-3">
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">1</div><div><h6>Electrical Machines</h6><p>DC & AC motors, generators, transformers – testing and maintenance</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">2</div><div><h6>Power Systems</h6><p>Generation, transmission, distribution, load flow analysis</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">3</div><div><h6>PLC & SCADA</h6><p>Industrial automation with Programmable Logic Controllers</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">4</div><div><h6>Solar PV System Design</h6><p>Design and implementation of solar energy systems</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">5</div><div><h6>Electric Vehicle Technology</h6><p>EV systems, battery management, and charging infrastructure</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">6</div><div><h6>Power Electronics</h6><p>Converters, inverters, PWM techniques, and drives</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">7</div><div><h6>Smart Grid Technology</h6><p>Grid modernization, AMI, demand response systems</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">8</div><div><h6>MATLAB & Simulink</h6><p>Simulation tools for electrical engineering applications</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">9</div><div><h6>Renewable Energy Systems</h6><p>Wind, solar, hydro, and hybrid energy system design</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">10</div><div><h6>Industrial Wiring & Safety</h6><p>Electrical installation, wiring standards, and safety protocols</p></div></div></div>
+    </div>
+  </div>
+
+  <!-- ECE -->
+  <div class="branch-panel" id="panel-ece">
+    <div class="row g-3">
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">1</div><div><h6>Embedded Systems</h6><p>Microcontrollers, ARM, Arduino, and real-time OS programming</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">2</div><div><h6>PCB Design & Fabrication</h6><p>Schematic, layout, prototyping, and PCB manufacturing</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">3</div><div><h6>IoT – Internet of Things</h6><p>Connected device design using ESP32, MQTT, and cloud integration</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">4</div><div><h6>VLSI Design</h6><p>Chip design fundamentals and semiconductor technologies</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">5</div><div><h6>5G Communication</h6><p>Wireless communication and antenna engineering concepts</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">6</div><div><h6>Signal Processing</h6><p>DSP, filters, FFT, and signal analysis with MATLAB</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">7</div><div><h6>Antenna Designing</h6><p>Microstrip, patch, and 5G antenna design and simulation</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">8</div><div><h6>Robotics & Automation</h6><p>Autonomous systems, path planning, and actuator control</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">9</div><div><h6>Sensor Technologies</h6><p>Interfacing sensors, data acquisition, and signal conditioning</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">10</div><div><h6>Mini & Major Projects</h6><p>Guided project development for ECE final year students</p></div></div></div>
+    </div>
+  </div>
+
+  <!-- CSE -->
+  <div class="branch-panel" id="panel-cse">
+    <div class="row g-3">
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">1</div><div><h6>Full Stack Web Development</h6><p>HTML, CSS, JavaScript, React, Node.js, and REST APIs</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">2</div><div><h6>Python Programming</h6><p>Core Python, OOP, file handling, libraries, and automation scripts</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">3</div><div><h6>Java Development</h6><p>Core Java, OOP, Spring Boot, and enterprise application development</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">4</div><div><h6>Database Management</h6><p>SQL, MySQL, PostgreSQL, MongoDB, and database design principles</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">5</div><div><h6>Cloud Computing</h6><p>AWS, Azure, GCP fundamentals, deployment, and cloud architecture</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">6</div><div><h6>DevOps & CI/CD</h6><p>Git, Docker, Kubernetes, Jenkins, and continuous deployment pipelines</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">7</div><div><h6>Mobile App Development</h6><p>Android (Kotlin), Flutter, and cross-platform app building</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">8</div><div><h6>Data Structures & Algorithms</h6><p>Arrays, trees, graphs, sorting, searching, and problem solving</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">9</div><div><h6>Software Testing & QA</h6><p>Manual testing, Selenium, unit testing, and test automation</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">10</div><div><h6>CSE Major & Mini Projects</h6><p>End-to-end guided software project development for final year</p></div></div></div>
+    </div>
+  </div>
+
+  <!-- Data Science -->
+  <div class="branch-panel" id="panel-ds">
+    <div class="row g-3">
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">1</div><div><h6>Python for Data Science</h6><p>NumPy, Pandas, Matplotlib, Seaborn — foundations of data analysis</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">2</div><div><h6>Statistics & Probability</h6><p>Descriptive and inferential statistics for data-driven decision making</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">3</div><div><h6>Machine Learning</h6><p>Regression, classification, clustering using scikit-learn</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">4</div><div><h6>Deep Learning</h6><p>Neural networks, CNNs, RNNs using TensorFlow and Keras</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">5</div><div><h6>Data Visualization</h6><p>Power BI, Tableau, and Plotly for interactive dashboards</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">6</div><div><h6>Natural Language Processing</h6><p>Text analysis, sentiment analysis, and transformer models</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">7</div><div><h6>Big Data & Spark</h6><p>Hadoop ecosystem, PySpark, and large-scale data processing</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">8</div><div><h6>SQL & Database for Data Science</h6><p>Advanced SQL queries, joins, window functions, data wrangling</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">9</div><div><h6>Feature Engineering & Model Tuning</h6><p>Feature selection, cross-validation, hyperparameter optimization</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">10</div><div><h6>Data Science Projects</h6><p>Real-world capstone projects with industry datasets and deployment</p></div></div></div>
+    </div>
+  </div>
+
+  <!-- Cybersecurity -->
+  <div class="branch-panel" id="panel-cs">
+    <div class="row g-3">
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">1</div><div><h6>Networking Fundamentals</h6><p>OSI model, TCP/IP, subnetting, routing, and switching concepts</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">2</div><div><h6>Ethical Hacking</h6><p>Penetration testing methodology, tools, and responsible disclosure</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">3</div><div><h6>Web Application Security</h6><p>OWASP Top 10, SQL injection, XSS, CSRF, and secure coding</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">4</div><div><h6>Cryptography</h6><p>Symmetric and asymmetric encryption, PKI, hashing, and TLS</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">5</div><div><h6>Network Security</h6><p>Firewalls, IDS/IPS, VPNs, and network monitoring tools</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">6</div><div><h6>Digital Forensics</h6><p>Evidence collection, disk analysis, memory forensics, and log analysis</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">7</div><div><h6>Cloud Security</h6><p>Securing AWS/Azure environments, IAM, compliance, and cloud threats</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">8</div><div><h6>Security Operations (SOC)</h6><p>SIEM tools, incident response, threat hunting, and log management</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">9</div><div><h6>Malware Analysis</h6><p>Static and dynamic analysis, reverse engineering, and sandboxing</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">10</div><div><h6>Cybersecurity Capstone Project</h6><p>End-to-end security audit and CTF challenge-based project</p></div></div></div>
+    </div>
+  </div>
+
+  <!-- Mechanical -->
+  <div class="branch-panel" id="panel-mech">
+    <div class="row g-3">
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">1</div><div><h6>AutoCAD & Drafting</h6><p>2D and 3D mechanical drawing, GD&T, and engineering standards</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">2</div><div><h6>SolidWorks / CATIA</h6><p>Parametric 3D modelling, assemblies, and simulations</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">3</div><div><h6>Finite Element Analysis (FEA)</h6><p>Structural analysis using ANSYS for stress, thermal, and dynamic loads</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">4</div><div><h6>CNC Programming</h6><p>G-code, M-code, CNC lathe, and milling machine operations</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">5</div><div><h6>Industrial Robotics</h6><p>Robot kinematics, pick-and-place, welding robots, and programming</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">6</div><div><h6>Thermodynamics & Heat Transfer</h6><p>Applied thermodynamics, heat exchangers, and HVAC fundamentals</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">7</div><div><h6>Manufacturing Processes</h6><p>Casting, welding, machining, forming, and quality control</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">8</div><div><h6>Fluid Mechanics & Hydraulics</h6><p>Pipe flow, pumps, turbines, and hydraulic system design</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">9</div><div><h6>3D Printing & Additive Manufacturing</h6><p>FDM, SLA, material selection, slicing software, and prototyping</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">10</div><div><h6>Mechanical Projects</h6><p>Mini and major project guidance for mechanical engineering students</p></div></div></div>
+    </div>
+  </div>
+
+  <!-- AI & ML -->
+  <div class="branch-panel" id="panel-aiml">
+    <div class="row g-3">
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">1</div><div><h6>Python for AI</h6><p>Foundations of Python programming tailored for AI/ML development</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">2</div><div><h6>Machine Learning Algorithms</h6><p>Supervised, unsupervised, and reinforcement learning with scikit-learn</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">3</div><div><h6>Deep Learning & Neural Networks</h6><p>CNNs, RNNs, LSTMs using PyTorch and TensorFlow</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">4</div><div><h6>Computer Vision</h6><p>Image classification, object detection, OpenCV, and YOLO</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">5</div><div><h6>Natural Language Processing</h6><p>BERT, transformers, chatbots, and language model fine-tuning</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">6</div><div><h6>Generative AI</h6><p>GANs, diffusion models, prompt engineering, and LLM applications</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">7</div><div><h6>AI for IoT</h6><p>Edge AI, TinyML, on-device inference, and smart sensor systems</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">8</div><div><h6>MLOps & Model Deployment</h6><p>Flask/FastAPI deployment, Docker, model versioning, and monitoring</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">9</div><div><h6>Reinforcement Learning</h6><p>Q-learning, policy gradients, and game-based AI agents</p></div></div></div>
+      <div class="col-lg-6"><div class="course-item"><div class="course-num">10</div><div><h6>AI Capstone Projects</h6><p>Industry-grade AI project development with mentorship and deployment</p></div></div></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════ INTERNSHIPS ═══════════════ -->
+<section class="container py-5" id="internships">
+  <h2 class="section-title">Internship Programs</h2>
   <div class="row g-4">
 
-    <div class="col-md-4">
-      <div class="course-card">
-        <h4>Embedded Systems</h4>
-        <p>Microcontrollers, IoT, ARM, Arduino, and automation systems.</p>
+    <!-- Online -->
+    <div class="col-lg-6">
+      <div class="intern-card">
+        <div class="intern-mode-title" style="color:#2563eb;">💻 Online Internship Courses</div>
+        <div class="intern-item"><h6>MATLAB & Simulink</h6><p>Electrical Engineering Tools & Simulations</p></div>
+        <div class="intern-item"><h6>Embedded Systems & IoT</h6><p>Real-Time Projects & Firmware Development</p></div>
+        <div class="intern-item"><h6>AI & Machine Learning</h6><p>Industry Applications & Model Building</p></div>
+        <div class="intern-item"><h6>Cyber Security</h6><p>Ethical Hacking Basics & Network Security</p></div>
+        <div class="intern-item"><h6>Data Science with Python</h6><p>Analytics, Visualization & Reporting</p></div>
+        <div class="intern-item"><h6>Renewable Energy Systems</h6><p>Solar & Smart Grid Technology</p></div>
+        <div class="intern-item"><h6>Full Stack Development</h6><p>Web Apps with React & Node.js</p></div>
+        <div class="intern-item"><h6>Cloud Computing</h6><p>AWS/GCP Fundamentals & Deployment</p></div>
       </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="course-card">
-        <h4>Solar PV System Design</h4>
-        <p>Design and implementation of solar energy systems.</p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="course-card">
-        <h4>PCB Design & Fabrication</h4>
-        <p>Professional PCB circuit designing and manufacturing.</p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="course-card">
-        <h4>VLSI Design</h4>
-        <p>Chip design fundamentals and semiconductor technologies.</p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="course-card">
-        <h4>5G Communication</h4>
-        <p>Wireless communication and antenna engineering concepts.</p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="course-card">
-        <h4>Industrial Automation</h4>
-        <p>PLC, SCADA, sensors, and industrial automation systems.</p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="course-card">
-        <h4>Electrical Vehicle Technology</h4>
-        <p>EV systems, battery technologies, and charging infrastructure.</p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="course-card">
-        <h4>AI & IoT</h4>
-        <p>Artificial Intelligence integrated with IoT applications.</p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="course-card">
-        <h4>Major & Mini Projects</h4>
-        <p>Project guidance for ECE and EEE students.</p>
+    <!-- Offline -->
+    <div class="col-lg-6">
+      <div class="intern-card">
+        <div class="intern-mode-title" style="color:#f59e0b;">🏭 Offline Internship Courses</div>
+        <div class="intern-item"><h6>PLC & SCADA</h6><p>Hands-On Industrial Automation Training</p></div>
+        <div class="intern-item"><h6>Electrical Machines</h6><p>Testing, Wiring & Maintenance Lab</p></div>
+        <div class="intern-item"><h6>Electric Vehicle Training</h6><p>EV Systems, BMS & Charging Infrastructure</p></div>
+        <div class="intern-item"><h6>PCB Design & Fabrication</h6><p>Practical PCB Printing & Assembly</p></div>
+        <div class="intern-item"><h6>Solar PV Installation</h6><p>Site Installation & System Commissioning</p></div>
+        <div class="intern-item"><h6>AutoCAD & Mechanical Design</h6><p>2D/3D CAD Drafting & Design Review</p></div>
+        <div class="intern-item"><h6>CNC & Manufacturing</h6><p>CNC Programming & Workshop Exposure</p></div>
+        <div class="intern-item"><h6>Real-Time Projects</h6><p>EEE · ECE · CSE · MECH Industry Projects</p></div>
       </div>
     </div>
 
   </div>
-
 </section>
 
-<!-- CTA -->
-
+<!-- ═══════════════ BENEFITS ═══════════════ -->
 <section class="container py-5">
-
   <div class="cta">
-
-    <h2 class="mb-4">Start Your Engineering Journey With Us</h2>
-
-    <p style="font-size:20px; line-height:1.8; max-width:900px; margin:auto;">
-      We provide industry-oriented training, reliable engineering services,
-      and innovative technology solutions for students, industries,
-      and organizations.
-    </p>
-
-    <a href="#courses" class="btn btn-light btn-lg mt-4">
-      Explore Courses
-    </a>
-
+    <h2 class="mb-2">🎯 Internship Benefits</h2>
+    <p style="font-size:17px;max-width:600px;margin:10px auto 40px;">Everything you need to kickstart your engineering career.</p>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fa-solid fa-certificate"></i></div>
+          <h5>Certificate</h5>
+          <p>Internship Completion Certification recognised by industry</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h5>Projects</h5>
+          <p>Hands-on industry projects with real-world datasets</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fa-solid fa-briefcase"></i></div>
+          <h5>Placement Support</h5>
+          <p>Resume building and core placement assistance</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="benefit-card">
+          <div class="benefit-icon"><i class="fa-solid fa-user-tie"></i></div>
+          <h5>Mentorship</h5>
+          <p>1-on-1 guidance from experienced industry faculty</p>
+        </div>
+      </div>
+    </div>
   </div>
-
 </section>
 
+<!-- ═══════════════ CONTACT ═══════════════ -->
+<section class="container py-5" id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <div class="row g-4 align-items-stretch">
 
+    <div class="col-lg-6">
+      <div class="contact-box h-100">
+        <h3 style="color:#facc15;margin-bottom:35px;font-weight:700;">Get In Touch</h3>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <h6>Address</h6>
+            <p>9-45/25, Prasi Towers<br>Madhapur, Hyderabad – 500 081<br>Telangana, India</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <h6>Email</h6>
+            <p><a href="mailto:info@prasithaengineering.com" style="color:#cbd5e1;text-decoration:none;">info@prasithaengineering.com</a></p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <h6>Phone / WhatsApp</h6>
+            <p>+91 XXXXX XXXXX</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <h6>Working Hours</h6>
+            <p>Monday – Saturday: 9:00 AM – 6:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="map-box">
+        <iframe
+          src="[google.com](https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.3280!2d78.3833!3d17.4502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93e35a9c5f1d%3A0x1c1f79a3f2a3f3a3!2sMadhapur%2C%20Hyderabad%2C%20Telangana%20500081!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin)"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ CTA BANNER ═══════════════ -->
+<section class="container py-5">
+  <div class="cta">
+    <h2 class="mb-4">Start Your Engineering Journey With Us</h2>
+    <p style="font-size:19px;line-height:1.9;max-width:800px;margin:auto;">
+      Industry-oriented training, reliable engineering services, and innovative technology solutions — for students, industries, and organisations across all branches.
+    </p>
+    <div class="mt-4">
+      <a href="#courses" class="btn btn-dark btn-lg me-3 px-5">Explore Courses</a>
+      <a href="#contact" class="btn btn-outline-dark btn-lg px-5">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <p style="font-size:16px;font-weight:600;">Prasitha Engineering & Tech Solutions</p>
+  <p style="margin-top:6px;color:#94a3b8;font-size:13px;">
+    9-45/25, Prasi Towers, Madhapur, Hyderabad – 500 081 &nbsp;|&nbsp;
+    <a href="mailto:info@prasithaengineering.com" style="color:#facc15;text-decoration:none;">info@prasithaengineering.com</a>
+  </p>
+  <p style="margin-top:10px;font-size:13px;color:#64748b;">© 2021 – 2026 Prasitha Engineering. All Rights Reserved.</p>
+</footer>
+
+<!-- ═══════════════ FLOATING BUTTON ═══════════════ -->
+<a href="mailto:info@prasithaengineering.com" class="float-btn" title="Contact Us">
+  <i class="fa-solid fa-envelope"></i>
+</a>
+
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
+<script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js)"></script>
+<script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js)"></script>
 
 <script>
-particlesJS('particles-js', {
-  particles: {
-    number: { value: 80 },
-    color: { value: '#facc15' },
-    shape: { type: 'circle' },
-    opacity: { value: 0.5 },
-    size: { value: 4 },
-    move: { enable: true, speed: 2 }
+  /* Particles */
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 70 },
+      color: { value: '#facc15' },
+      shape: { type: 'circle' },
+      opacity: { value: 0.45 },
+      size: { value: 3 },
+      move: { enable: true, speed: 1.8 }
+    }
+  });
+
+  /* Branch Tab Switcher */
+  function showBranch(id, btn) {
+    document.querySelectorAll('.branch-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.branch-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
   }
-});
 
-const cards = document.querySelectorAll('.service-card, .course-card');
-
-cards.forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(250,204,21,0.25), rgba(255,255,255,0.08))`;
+  /* Card glow on mousemove */
+  document.querySelectorAll('.service-card, .course-card, .intern-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.background = `radial-gradient(circle at ${e.clientX - r.left}px ${e.clientY - r.top}px, rgba(250,204,21,0.22), rgba(255,255,255,0.07))`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.background = 'rgba(255,255,255,0.08)';
+    });
   });
 
-  card.addEventListener('mouseleave', () => {
-    card.style.background = 'rgba(255,255,255,0.08)';
+  /* Smooth scroll */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
   });
-});
 </script>
-
-
-
-<!-- INTERNSHIP COURSES SECTION -->
-
-<section class="container py-5" id="internships">
-
-  <h2 class="section-title">EEE • CSE • AI/ML Internship Programs</h2>
-
-  <div class="row g-4">
-
-    <div class="col-lg-6">
-
-      <div class="course-card">
-
-        <h3 style="color:#2563eb; margin-bottom:25px;">
-          💻 Online Internship Courses
-        </h3>
-
-        <div class="row g-3">
-
-          <div class="col-md-6">
-            <div class="p-3 rounded bg-yellow border">
-              <h5> MATLAB & Simulink</h5>
-              <p>Electrical Engineering Tools</p>
-              <span class="badge bg-primary">₹600</span>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="p-3 rounded bg-light border">
-              <h5>Embedded Systems & IoT</h5>
-              <p>Real-Time Projects</p>
-              <span class="badge bg-primary">₹650</span>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="p-3 rounded bg-light border">
-              <h5>AI & Machine Learning</h5>
-              <p>Industry Applications</p>
-              <span class="badge bg-dark">₹850</span>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="p-3 rounded bg-light border">
-              <h5>Cyber Security</h5>
-              <p>Ethical Hacking Basics</p>
-              <span class="badge bg-danger">₹750</span>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="p-3 rounded bg-light border">
-              <h5>Data Science with Python</h5>
-              <p>Analytics & Visualization</p>
-              <span class="badge bg-success">₹800</span>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="p-3 rounded bg-light border">
-              <h5>Renewable Energy Systems</h5>
-              <p>Solar & Smart Grid</p>
-              <span class="badge bg-warning text-dark">₹550</span>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="col-lg-6">
-
-      <div class="course-card">
-
-        <h3 style="color:#f59e0b; margin-bottom:25px;">
-          🏭 Offline Internship Courses
-        </h3>
-
-        <div class="row g-3">
-
-          <div class="col-md-6">
-            <div class="p-3 rounded bg-light border">
-              <h5>PLC & SCADA</h5>
-              <p>Industrial Automation</p>
-              <span class="badge bg-warning text-dark">₹4800</span>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="p-3 rounded bg-light border">
-              <h5>Electrical Machines</h5>
-              <p>Testing & Maintenance</p>
-              <span class="badge bg-primary">₹650</span>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="p-3 rounded bg-light border">
-              <h5>Electric Vehicle Training</h5>
-              <p>EV Systems & Batteries</p>
-              <span class="badge bg-success">₹4800</span>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="p-3 rounded bg-light border">
-              <h5>PCB Design</h5>
-              <p>Fabrication & Printing</p>
-              <span class="badge bg-dark">₹4700</span>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="p-3 rounded bg-light border">
-              <h5>Solar PV Installation</h5>
-              <p>Practical Training</p>
-              <span class="badge bg-warning text-dark">₹4650</span>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="p-3 rounded bg-light border">
-              <h5>Real-Time Projects</h5>
-              <p>EEE • ECE • CSE</p>
-              <span class="badge bg-danger">₹1000</span>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- BENEFITS -->
-
-<section class="container py-5">
-
-  <div class="cta">
-
-    <h2 class="mb-4">
-      🎯 Internship Benefits
-    </h2>
-
-    <div class="row g-4 mt-4">
-
-      <div class="col-md-3">
-        <div class="bg-white text-dark rounded p-4 h-100 shadow">
-          <h5>Certificate</h5>
-          <p>Internship Completion Certification</p>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="bg-white text-dark rounded p-4 h-100 shadow">
-          <h5>Projects</h5>
-          <p>Hands-on Industry Projects</p>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="bg-white text-dark rounded p-4 h-100 shadow">
-          <h5>Placement Support</h5>
-          <p>Useful for Core Placements</p>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="bg-white text-dark rounded p-4 h-100 shadow">
-          <h5>Mentorship</h5>
-          <p>Expert Faculty Guidance</p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- FLOATING CONTACT BUTTON -->
-
-<a href="#" style="
-position:fixed;
-right:20px;
-bottom:20px;
-background:#2563eb;
-color:white;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-text-decoration:none;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
-z-index:999;
-">
-<i class="fa-solid fa-phone"></i>
-</a>
-  <!-- FOOTER -->
-
-<footer>
-
-  <p>
-    © 2021 Prasitha Engineering | All Rights Reserved
-  </p>
-
-</footer>
 
 </body>
 </html>
