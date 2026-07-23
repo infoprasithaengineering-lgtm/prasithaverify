@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Certificate</title>
+</head>
+<body>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const file = params.get("file");
+
+if(file){
+    // Open PDF
+    window.location.href = "certificates/" + file + ".pdf";
+}else{
+    document.body.innerHTML = "<h2>Certificate Not Found</h2>";
+}
+</script>
+
+</body>
+</html>
