@@ -1,21 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Certificate</title>
+<meta charset="UTF-8">
+<title>Certificate Viewer</title>
+
+<style>
+html, body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+}
+
+iframe{
+    width:100%;
+    height:100vh;
+    border:none;
+}
+</style>
+
 </head>
 <body>
 
+<iframe id="pdfViewer"></iframe>
+
 <script>
+
 const params = new URLSearchParams(window.location.search);
 const file = params.get("file");
 
 if(file){
-    // Open PDF
-    window.location.href = "certificates/" + file + ".pdf";
+    document.getElementById("pdfViewer").src =
+        "certificates/" + file + ".pdf";
 }else{
-    document.body.innerHTML = "<h2>Certificate Not Found</h2>";
+    document.body.innerHTML="<h2 style='text-align:center;'>Certificate Not Found</h2>";
 }
+
 </script>
 
 </body>
