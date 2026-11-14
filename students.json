@@ -359,6 +359,13 @@
     "duration": "01/05/2026 to 10/06/2026",
     "college": "ACHARYA NAGARJUNA UNIVERSITY"
   },
+ {
+    "id": "PETS2026119SUMINT1456",
+    "name": "Namburu Vyshnavi",
+    "course": "Data Science with Python",
+    "duration": "01/02/2026 to 30/10/2026",
+    "college": "Vasireddy Venkatadri Institute of Technology"
+  },
    {
     "id": "PETS202678",
     "name": "BULLA SUJITHA",
